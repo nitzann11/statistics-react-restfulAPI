@@ -1,0 +1,75 @@
+/* Main container for About section */
+.aboutSection {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  /* Background image */
+  .background {
+    background: url("src/assets/photos/about.jpg") no-repeat center center/cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+  }
+  
+  /* Dark transparent overlay */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: -1;
+  }
+  
+  /* Text content styling */
+  .aboutText {
+    position: relative;
+    text-align: center;
+    color: white;
+    z-index: 1;
+    padding: 20px;
+    max-width: 800px;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Profile image container */
+  .profileImageContainer {
+    margin-bottom: -20px;
+  }
+  
+  /* Circular Image styling */
+  .profileImage {
+    width: 225px; /* Set the size of the circular image */
+    height: 225px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border: 5px solid white; /* Optional: Adds a border around the image */
+  }
+  
+  /* Heading styling */
+  .aboutText h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: white; /* Light beige color for text */
+  }
+  
+  /* Paragraph styling */
+  .aboutText p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+  

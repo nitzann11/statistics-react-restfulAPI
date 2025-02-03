@@ -1,0 +1,61 @@
+# ------------------
+# General
+# ------------------
+.DS_Store
+Thumbs.db
+
+# ------------------
+# Python / Django
+# ------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+db.sqlite3
+.env
+.env.local
+.env.production
+.env.development
+.env.test
+*.log
+logs/
+migrations/**/__pycache__/
+migrations/*.pyc
+
+# Virtual environments
+venv/
+env/
+.env/
+
+# ------------------
+# Node.js / Frontend (React, Vite, TypeScript)
+# ------------------
+node_modules/
+dist/
+build/
+.cache/
+.vscode/
+.idea/
+npm-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+*.tsbuildinfo
+
+# ------------------
+# Docker
+# ------------------
+.dockerignore
+docker-compose.override.yml
+
+# ------------------
+# Editor / OS-Specific Files
+# ------------------
+*.swp
+*.swo
+*.swn
+*.sublime-workspace
+*.sublime-project
+*.vscode/
+*.idea/

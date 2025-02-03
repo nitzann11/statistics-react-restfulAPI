@@ -1,0 +1,40 @@
+.layout {
+    height: 100vh; /* Full height for the layout */
+    width: 100%; /* Full width */
+    display: flex;
+    flex-direction: column; /* Stacks content vertically */
+  }
+  
+  .mySwiper {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .slide {
+    height: 100%; /* Make each slide full height */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    font-size: 2rem; /* Make the font larger */
+    background-color: transparent;
+    color: black;
+  }
+  
+  /* Dark overlay and loading bar */
+  .loadingOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999; /* Ensure it overlays everything */
+    background-color: black; /* Semi-transparent dark background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .loadingBar {
+    width: 60%; /* Adjust width of the loading bar */
+  }
+  

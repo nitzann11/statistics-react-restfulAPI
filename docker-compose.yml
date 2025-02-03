@@ -1,0 +1,81 @@
+version: "3.8"  # Specify the version of the Docker Compose file
+
+services:
+  # MySQL Database Service
+  db:
+    build:
+      context: ./database  # Build the DB service from Dockerfile located in ./database
+      dockerfile: Dockerfile  # Explicitly specify the Dockerfile location
+    image: mysql:8  # Use the official MySQL 8 image
+    container_name: mysql_db  # Set the container name for easy identification
+    restart: unless-stopped  # Ensure the container restarts unless explicitly stopped
+    env_file:
+      - ./backend/.env  # Load environment variables from the backend/.env file
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}  # Set the database name dynamically using env variable
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}  # Set the root password using env variable
+      MYSQL_USER: ${MYSQL_USER}  # Set the MySQL user using env variable
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}  # Set the MySQL password using env variable
+      MYSQL_HOST: db  # Use the service name 'db' to connect with backend
+      MYSQL_PORT: ${MYSQL_PORT}  # Set MySQL port dynamically using env variable
+    ports:
+      - "3306:3306"  # Expose MySQL on port 3306
+    volumes:
+      - mysql_data:/var/lib/mysql  # Persist database data across container restarts
+    networks:
+      - my_network  # Connect the service to 'my_network'
+
+  # Django Backend Service
+  backend:
+    build:
+      context: ./backend  # Build the backend service from Dockerfile located in ./backend
+      dockerfile: Dockerfile  # Explicitly specify the Dockerfile location
+    image: nitzann6631/vacation-backend:1.0  # Use the custom image for backend
+    container_name: django_backend  # Set the container name for easy identification
+    restart: unless-stopped  # Ensure the container restarts unless explicitly stopped
+    depends_on:
+      - db  # Ensure the db service starts before the backend
+    env_file:
+      - ./backend/.env  # Load environment variables from backend/.env file
+    environment:
+      MYSQL_HOST: db  # Use the service name 'db' for MySQL connection
+      MYSQL_PORT: ${MYSQL_PORT}  # Set MySQL port dynamically using env variable
+      SECRET_KEY: ${SECRET_KEY}  # Set the Django secret key dynamically using env variable
+      DEBUG: "False"  # Disable Django debug mode in production
+    ports:
+      - "8000:8000"  # Expose backend on port 8000
+    volumes:
+      - ./backend:/app  # Mount the backend directory into the container
+    networks:
+      - my_network  # Connect the backend service to 'my_network'
+    command: >
+      sh -c "python manage.py migrate &&  # Run migrations before starting server
+             python manage.py runserver 0.0.0.0:8000"  # Run Django development server
+
+  # React Frontend Service
+  frontend:
+    build:
+      context: ./frontend  # Build the frontend service from Dockerfile located in ./frontend
+      dockerfile: Dockerfile  # Explicitly specify the Dockerfile location
+    image: nitzann6631/vacation-frontend:1.0  # Use the custom image for frontend
+    container_name: react_frontend  # Set the container name for easy identification
+    restart: unless-stopped  # Ensure the container restarts unless explicitly stopped
+    depends_on:
+      - backend  # Ensure the backend service starts before the frontend
+    ports:
+      - "3000:3000"  # Expose frontend on port 3000
+    volumes:
+      - ./frontend:/app  # Mount the frontend directory into the container
+      - /app/node_modules  # Persist node_modules for dependency management
+    networks:
+      - my_network  # Connect the frontend service to 'my_network'
+    environment:
+      - VITE_API_URL=http://localhost:8000  # Inject API URL into frontend via Vite environment variable
+
+# Define the custom Docker network for communication between services
+networks:
+  my_network:  # This ensures all services can communicate with each other
+
+# Define the volume for MySQL data persistence
+volumes:
+  mysql_data:  # This ensures data is preserved across container restarts

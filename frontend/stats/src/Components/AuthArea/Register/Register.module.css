@@ -1,0 +1,53 @@
+/* Form container */
+.formContainer {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+/* Heading styles */
+.heading {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold !important;
+  color: black;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Register button */
+.registerButton {
+  margin-top: 1.5rem;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #4caf50;
+  transition: background-color 0.3s ease;
+}
+
+.registerButton:hover {
+  background-color: #388e3c;
+}
+
+/* Toggle button section */
+.toggleSection {
+  margin-top: 1rem;
+  font-family: "Roboto", sans-serif;
+  color: #000;
+  font-size: 0.9rem;
+}
+
+.toggleButton {
+  font-weight: bold !important;
+  color: #1976d2;
+  text-transform: capitalize !important;
+  font-size: 0.9rem;
+}
+
+

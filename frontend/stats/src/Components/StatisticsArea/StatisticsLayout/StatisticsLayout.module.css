@@ -1,0 +1,42 @@
+.statisticsLayout {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    padding: 0 2rem;
+  }
+  
+  .backgroundVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  
+  .panelContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+  }
+  
+  .leftText {
+    position: relative;
+    margin-bottom: 5rem;
+    margin-left: 3rem;
+  }
+  
+  .boldText {
+    font-family: "Roboto", sans-serif ;
+    font-weight: bolder !important;
+    color: white;
+    text-align: left;
+    
+    
+  }
+  

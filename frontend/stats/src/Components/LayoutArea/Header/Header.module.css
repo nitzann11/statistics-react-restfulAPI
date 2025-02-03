@@ -1,0 +1,87 @@
+/* Main container for the header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    color: white;
+    background-color: transparent;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  /* Navbar container */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+  }
+  
+  /* Navigation buttons container */
+  .navButtons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  /* Navigation link buttons */
+  .navLink {
+    font-size: 16px;
+    color: inherit;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .navLink:hover {
+    transform: scale(1.3);
+    color: #cbb79d; /* Beige hover color */
+  }
+  
+  .navLink.active {
+    color: #cbb79d; /* Beige active color */
+    position: relative;
+  }
+  
+  .navLink.active::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #cbb79d; /* Beige underline for active */
+    border-radius: 2px;
+  }
+  
+  /* User section */
+  .userSection {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .userGreeting {
+    font-size: 16px;
+  }
+  
+  .logoutButton {
+    font-size: 14px;
+    padding: 5px 10px;
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .logoutButton:hover {
+    background-color: white;
+    color: black;
+  }
+  

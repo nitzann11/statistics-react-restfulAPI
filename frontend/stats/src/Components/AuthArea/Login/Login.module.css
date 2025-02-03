@@ -1,0 +1,41 @@
+/* Form container */
+.formContainer {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+  }
+  
+  /* Heading styles */
+  .heading {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    color: black;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  /* Button styles */
+  .button {
+    margin-top: 1rem;
+  }
+  
+  /* Toggle text styles */
+  .toggleText {
+    margin-top: 1rem;
+    color: #000;
+    font-size: 0.9rem;
+  }
+  
+  /* Toggle button styles */
+  .toggleButton {
+    color: #1976d2;
+    text-transform: none;
+    font-weight: bold;
+  }
+  
